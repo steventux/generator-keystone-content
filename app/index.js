@@ -106,6 +106,11 @@ KeystoneGenerator.prototype.prompts = function prompts() {
 				message: 'Would you like to include a Contact Form?',
 				default: true
 			}, {
+				type: 'confirm',
+				name: 'includeContent',
+				message: 'Would you like to include a Content Model?',
+				default: true
+			}, {
 				name: 'userModel',
 				message: 'What would you like to call the User model?',
 				default: 'User'
@@ -325,6 +330,10 @@ KeystoneGenerator.prototype.models = function models() {
 		modelFiles.push('Enquiry');
 	}
 
+	if (this.includeContent) {
+		modelFiles.push('Content');
+	}
+
 	this.mkdir('models');
 
 	this.template('models/_User.js', 'models/' + this.userModel + '.js');
@@ -362,6 +371,9 @@ KeystoneGenerator.prototype.routes = function routes() {
 		this.copy('routes/views/contact.js');
 	}
 
+	if (this.includeContent) {
+		this.copy('routes/views/content.js');
+	}
 };
 
 KeystoneGenerator.prototype.templates = function templates() {
@@ -393,6 +405,10 @@ KeystoneGenerator.prototype.templates = function templates() {
 			if (this.includeEmail) {
 				this.copy('templates/default-hbs/emails/enquiry-notification.hbs', 'templates/emails/enquiry-notification.hbs');
 			}
+		}
+
+		if (this.includeContent) {
+			this.copy('templates/default-hbs/views/content.hbs', 'templates/views/content.hbs');
 		}
 
 	} else if (this.viewEngine === 'nunjucks') {
@@ -451,6 +467,11 @@ KeystoneGenerator.prototype.templates = function templates() {
 			if (this.includeEmail) {
 				this.copy('templates/default-' + this.viewEngine + '/emails/enquiry-notification.' + this.viewEngine, 'templates/emails/enquiry-notification.' + this.viewEngine);
 			}
+		}
+
+		if (this.includeContent) {
+			this.copy('templates/default-' + this.viewEngine + '/views/content.' + this.viewEngine,
+                'templates/views/content.' + this.viewEngine);
 		}
 	}
 
