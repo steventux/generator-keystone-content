@@ -1,11 +1,11 @@
 {
-  "name": "generator-keystone",
+  "name": "generator-keystone-content",
   "version": "0.3.9",
-  "description": "A KeystoneJS Project Generator for Yeoman",
+  "description": "A KeystoneJS Project Generator with Content for Yeoman",
   "keywords": [
     "yeoman-generator",
     "keystonejs",
-    "keystone",
+    "keystone-content",
     "express",
     "cms",
     "mongoose",
@@ -15,16 +15,16 @@
     "site",
     "blog"
   ],
-  "homepage": "https://github.com/keystonejs/generator-keystone",
-  "bugs": "https://github.com/keystonejs/generator-keystone/issues",
+  "homepage": "https://github.com/steventux/generator-keystone-content",
+  "bugs": "https://github.com/steventux/generator-keystone-content/issues",
   "author": {
-    "name": "Jed Watson",
-    "url": "https://github.com/JedWatson"
+    "name": "Steve Laing",
+    "url": "https://github.com/steventux"
   },
   "main": "app/index.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/keystonejs/generator-keystone.git"
+    "url": "git://github.com/steventux/generator-keystone-content.git"
   },
   "scripts": {
     "test": "mocha"
